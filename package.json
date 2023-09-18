@@ -9,6 +9,8 @@
     "preview": "vite preview"
   },
   "devDependencies": {
-    "vite": "^4.4.5"
+    "dotenv": "^16.3.1",
+    "vite": "^4.4.5",
+    "vite-plugin-live-reload": "^3.0.2"
   }
 }
