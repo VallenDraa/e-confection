@@ -6,7 +6,13 @@ error_reporting(E_ALL);
 session_start();
 
 // Load ENVs
-$ENV = parse_ini_file(".env");
+$ENV = parse_ini_file(".php.env");
+
+// This would be your framework default bootstrap file
+
+// During dev, this file would be hit when accessing your local host, like:
+// http://vite-php-setup.test
+require_once './vite.php';
 
 // File routing based on the page info from the URL
 $page = $_GET['page'] ?? "";

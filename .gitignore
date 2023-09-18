@@ -12,7 +12,9 @@ dist
 dist-ssr
 *.local
 
-public/.env
+# ENVs
+public/.php.env
+.env
 
 # Editor directories and files
 .vscode/*

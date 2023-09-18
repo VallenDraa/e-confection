@@ -2,13 +2,12 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <?php require_once "components/head-tags.php" ?>
   <title>Document</title>
 </head>
 
 <body>
-  <h1></h1>
+  <h1>404</h1>
 </body>
 
 </html>
