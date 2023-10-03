@@ -12,10 +12,6 @@ dist
 dist-ssr
 *.local
 
-# ENVs
-public/.php.env
-.env
-
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
