@@ -1,6 +1,7 @@
 import express from 'express';
 import { PORT } from './constant.js';
 import { logger } from './utils/logger.js';
+import 'reflect-metadata';
 
 const app = express();
 
