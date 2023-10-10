@@ -4,7 +4,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 export const envValidator = z.object({
-  PORT: z.number(),
+  PORT: z.number().optional(),
   ENABLE_LOGGING: z.boolean(),
   NODE_ENV: z.enum(['production', 'development']),
   ALLOWED_ORIGIN: z.string(),
