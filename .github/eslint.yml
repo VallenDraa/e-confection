@@ -1,0 +1,50 @@
+name: ESlint Linting Process
+
+on: [pull_request, push]
+
+env:
+  PORT: 4000
+  ENABLE_LOGGING: true
+  NODE_ENV: "development"
+  ALLOWED_ORIGIN: "http://localhost/5173"
+  DB_HOST: "localhost"
+  DB_PORT: 3306
+  DB_USERNAME: ""
+  DB_PASSWORD: ""
+  DB_DATABASE: ""
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Use Node.js 20
+        uses: actions/setup-node@v2
+        with:
+          node-version: 20
+
+      - name: Install backend dependencies
+        working-directory: ./backend
+        run: npm install
+
+      - name: Install frontend dependencies
+        working-directory: ./frontend
+        run: npm install
+
+      - name: Typecheck backend
+        working-directory: ./backend
+        run: npm run typecheck
+
+      - name: Typecheck frontend
+        working-directory: ./frontend
+        run: npm run typecheck
+
+      - name: Lint backend
+        working-directory: ./backend
+        run: npm run lint
+
+      - name: Lint frontend
+        working-directory: ./frontend
+        run: npm run lint

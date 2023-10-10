@@ -4,10 +4,11 @@
   "description": "",
   "type": "module",
   "scripts": {
-    "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/app.js | npx pino-pretty",
+    "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/app.js | npx pino-pretty\"",
     "cleanup": "rimraf ./dist",
     "build": "npm run cleanup && tsc",
     "lint": "eslint src/**/*.ts --fix",
+    "typecheck": "tsc --noEmit",
     "start": "npm run lint && npm run build && node dist/app.js | npx pino-pretty",
     "typeorm": "typeorm-ts-node-commonjs"
   },
