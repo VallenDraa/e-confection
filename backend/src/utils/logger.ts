@@ -1,4 +1,4 @@
 import { pino } from 'pino';
-import { ENABLE_LOGGING } from '../constant.js';
+import { env } from '../constant.js';
 
-export const logger = ENABLE_LOGGING ? pino() : undefined;
+export const logger = env.ENABLE_LOGGING ? pino() : undefined;

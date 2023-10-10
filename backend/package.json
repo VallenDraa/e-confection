@@ -4,18 +4,22 @@
   "description": "",
   "type": "module",
   "scripts": {
-    "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/index.js | npx pino-pretty",
+    "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/app.js | npx pino-pretty",
     "cleanup": "rimraf ./dist",
     "build": "npm run cleanup && tsc",
     "lint": "eslint src/**/*.ts --fix",
-    "start": "npm run lint && npm run build && node dist/index.js | npx pino-pretty"
+    "start": "npm run lint && npm run build && node dist/app.js | npx pino-pretty",
+    "typeorm": "typeorm-ts-node-commonjs"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "argon2": "^0.31.1",
     "cors": "^2.8.5",
     "express": "^4.18.2",
+    "express-rate-limit": "^7.1.0",
+    "jsonwebtoken": "^9.0.2",
     "mysql": "^2.18.1",
     "pino": "^8.15.3",
     "pino-http": "^8.5.0",
@@ -38,8 +42,6 @@
     "nodemon": "^3.0.1",
     "prettier": "^3.0.3",
     "rimraf": "^5.0.5",
-    "ts-node": "^10.9.1",
-    "ts-node-dev": "^2.0.0",
     "typescript": "^5.2.2"
   }
 }

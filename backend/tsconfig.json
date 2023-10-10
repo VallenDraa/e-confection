@@ -5,6 +5,9 @@
     "target": "ES2020",
     "sourceMap": true,
     "outDir": "dist",
+    "strictPropertyInitialization": false,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
     "strict": true
   },
   "include": ["src/**/*", ".eslintrc.cjs"]
