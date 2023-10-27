@@ -10,3 +10,5 @@ It has several key features, which are:
 - Recording outgoing goods
 - Amount of available goods for production
 - Employee salaries management
+
+[Click here to read the documentation summary.](SUMMARY.md)
