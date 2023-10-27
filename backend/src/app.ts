@@ -1,14 +1,18 @@
 import 'reflect-metadata';
 
 import express from 'express';
-import { env } from './constant.js';
+import cors from 'cors';
+import * as session from 'express-session';
+import mySQLStoreMaker from 'express-mysql-session';
+import { ONE_DAY, env } from './constant.js';
 import { logger } from './utils/logger.js';
 import { appDataSource } from './db.js';
-import cors from 'cors';
 
 export const main = async () => {
   logger?.info(`Starting server on ${env.NODE_ENV} mode.`);
   const app = express();
+
+  const SessionStore = mySQLStoreMaker(session);
 
   // Parse incoming JSON request body
   app.use(express.json());
@@ -18,6 +22,26 @@ export const main = async () => {
 
   // Setup allowed client url
   app.use(cors({ origin: [env.ALLOWED_ORIGIN] }));
+
+  // Setup session
+  app.use(
+    session.default({
+      name: env.SESSION_NAME,
+      secret: env.SESSION_SECRET,
+      resave: false,
+      saveUninitialized: true,
+      cookie: { maxAge: ONE_DAY, sameSite: 'none' },
+      store: new SessionStore({
+        connectionLimit: 10,
+        password: env.DB_PASSWORD,
+        user: env.DB_USERNAME,
+        database: env.DB_DATABASE,
+        host: env.DB_HOST,
+        port: env.DB_PORT,
+        createDatabaseTable: true,
+      }),
+    }),
+  );
 
   // Starts the http server, immediately exit if it fails.
   app
