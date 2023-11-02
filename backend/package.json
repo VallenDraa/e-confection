@@ -7,7 +7,7 @@
     "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/app.js | npx pino-pretty\"",
     "start": "npm run lint && npm run build && node dist/app.js | npx pino-pretty",
     "typeorm": "typeorm-ts-node-commonjs",
-    "typecheck": "tsc",
+    "typecheck": "tsc --noEmit",
     "test": "cross-env NODE_ENV=test jest --testTimeout=5000",
     "lint": "eslint src/**/*.ts --fix",
     "cleanup": "rimraf ./dist",
