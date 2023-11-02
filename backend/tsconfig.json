@@ -8,7 +8,9 @@
     "strictPropertyInitialization": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "strict": true
+    "strict": true,
+    "noEmit": true,
+    "skipLibCheck": true
   },
   "include": ["src/**/*", ".eslintrc.cjs"]
 }
